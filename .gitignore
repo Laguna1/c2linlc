@@ -10,7 +10,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/tmp/cache/bootsnap/*
 !/log/.keep
 !/tmp/.keep
 

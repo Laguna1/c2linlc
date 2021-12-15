@@ -11,6 +11,16 @@
   </head>
 
   <body>
+  <header>
+    <p><%= link_to 'All Visits', visits_path %></p>
+    <p><%= link_to 'Add Visit?', new_visit_path %></p>
+    <p></p>
+  </header>
+    <% flash.each do |name, msg| %>
+      <ul>
+        <li><%= msg%></li>
+      </ul>
+    <%end%>
     <%= yield %>
   </body>
 </html>
