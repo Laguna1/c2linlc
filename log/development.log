@@ -15,3 +15,679 @@ Migrating to CreateVisits (20211215170551)
   [1m[36mTRANSACTION (31.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6524926099329136695)[0m
   [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-12-15 19:08:15 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 15.8ms | Allocations: 2179)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:93
+				throw err;
+				^
+
+Error: Cannot find module '@rails/webpacker'
+Require stack:
+- /home/oksana/c2linlc/config/webpack/environment.js
+- /home/oksana/c2linlc/config/webpack/development.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js
+- /home/oksana/c2linlc/node_modules/webpack/bin/webpack.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/environment.js:1:87)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/development.js:3:21)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WEBPACK_OPTIONS (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/oksana/c2linlc/node_modules/yargs/yargs.js:576:18)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/oksana/c2linlc/config/webpack/environment.js',
+    '/home/oksana/c2linlc/config/webpack/development.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js',
+    '/home/oksana/c2linlc/node_modules/webpack/bin/webpack.js'
+  ]
+}
+
+  Rendered layout layouts/application.html.erb (Duration: 21586.0ms | Allocations: 24478)
+Completed 500 Internal Server Error in 21966ms (ActiveRecord: 8.3ms | Allocations: 28310)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/c2linlc/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-12-15 19:18:09 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 25.8ms | Allocations: 2073)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:93
+				throw err;
+				^
+
+Error: Cannot find module '@rails/webpacker'
+Require stack:
+- /home/oksana/c2linlc/config/webpack/environment.js
+- /home/oksana/c2linlc/config/webpack/development.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js
+- /home/oksana/c2linlc/node_modules/webpack/bin/webpack.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/environment.js:1:87)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/development.js:3:21)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WEBPACK_OPTIONS (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/oksana/c2linlc/node_modules/yargs/yargs.js:576:18)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/oksana/c2linlc/config/webpack/environment.js',
+    '/home/oksana/c2linlc/config/webpack/development.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js',
+    '/home/oksana/c2linlc/node_modules/webpack/bin/webpack.js'
+  ]
+}
+
+  Rendered layout layouts/application.html.erb (Duration: 6486.7ms | Allocations: 9472)
+Completed 500 Internal Server Error in 6637ms (ActiveRecord: 5.6ms | Allocations: 12242)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/c2linlc/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-12-15 19:18:24 +0200
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 990)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:93
+				throw err;
+				^
+
+Error: Cannot find module '@rails/webpacker'
+Require stack:
+- /home/oksana/c2linlc/config/webpack/environment.js
+- /home/oksana/c2linlc/config/webpack/development.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js
+- /home/oksana/c2linlc/node_modules/webpack/bin/webpack.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/environment.js:1:87)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/development.js:3:21)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WEBPACK_OPTIONS (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/oksana/c2linlc/node_modules/yargs/yargs.js:576:18)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/oksana/c2linlc/config/webpack/environment.js',
+    '/home/oksana/c2linlc/config/webpack/development.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js',
+    '/home/oksana/c2linlc/node_modules/webpack/bin/webpack.js'
+  ]
+}
+
+  Rendered layout layouts/application.html.erb (Duration: 1721.8ms | Allocations: 5838)
+Completed 500 Internal Server Error in 1724ms (ActiveRecord: 2.1ms | Allocations: 6255)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/c2linlc/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-12-15 19:21:27 +0200
+  [1m[35m (25.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 15.2ms | Allocations: 2073)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:93
+				throw err;
+				^
+
+Error: Cannot find module '@rails/webpacker'
+Require stack:
+- /home/oksana/c2linlc/config/webpack/environment.js
+- /home/oksana/c2linlc/config/webpack/development.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js
+- /home/oksana/c2linlc/node_modules/webpack/bin/webpack.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/environment.js:1:87)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/development.js:3:21)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WEBPACK_OPTIONS (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/oksana/c2linlc/node_modules/yargs/yargs.js:576:18)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/oksana/c2linlc/config/webpack/environment.js',
+    '/home/oksana/c2linlc/config/webpack/development.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js',
+    '/home/oksana/c2linlc/node_modules/webpack/bin/webpack.js'
+  ]
+}
+
+  Rendered layout layouts/application.html.erb (Duration: 2834.5ms | Allocations: 9463)
+Completed 500 Internal Server Error in 2932ms (ActiveRecord: 7.9ms | Allocations: 12233)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/c2linlc/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-12-15 19:21:46 +0200
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 990)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:93
+				throw err;
+				^
+
+Error: Cannot find module '@rails/webpacker'
+Require stack:
+- /home/oksana/c2linlc/config/webpack/environment.js
+- /home/oksana/c2linlc/config/webpack/development.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js
+- /home/oksana/c2linlc/node_modules/webpack/bin/webpack.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/environment.js:1:87)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/development.js:3:21)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WEBPACK_OPTIONS (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/oksana/c2linlc/node_modules/yargs/yargs.js:576:18)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/oksana/c2linlc/config/webpack/environment.js',
+    '/home/oksana/c2linlc/config/webpack/development.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js',
+    '/home/oksana/c2linlc/node_modules/webpack/bin/webpack.js'
+  ]
+}
+
+  Rendered layout layouts/application.html.erb (Duration: 1300.3ms | Allocations: 5840)
+Completed 500 Internal Server Error in 1302ms (ActiveRecord: 2.0ms | Allocations: 6257)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/c2linlc/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-12-15 19:24:38 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2073)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:93
+				throw err;
+				^
+
+Error: Cannot find module '@rails/webpacker'
+Require stack:
+- /home/oksana/c2linlc/config/webpack/environment.js
+- /home/oksana/c2linlc/config/webpack/development.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js
+- /home/oksana/c2linlc/node_modules/webpack/bin/webpack.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/environment.js:1:87)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/development.js:3:21)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WEBPACK_OPTIONS (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/oksana/c2linlc/node_modules/yargs/yargs.js:576:18)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/oksana/c2linlc/config/webpack/environment.js',
+    '/home/oksana/c2linlc/config/webpack/development.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js',
+    '/home/oksana/c2linlc/node_modules/webpack/bin/webpack.js'
+  ]
+}
+
+  Rendered layout layouts/application.html.erb (Duration: 1566.1ms | Allocations: 9459)
+Completed 500 Internal Server Error in 1579ms (ActiveRecord: 6.9ms | Allocations: 12229)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/c2linlc/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-12-15 19:24:48 +0200
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 990)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:93
+				throw err;
+				^
+
+Error: Cannot find module '@rails/webpacker'
+Require stack:
+- /home/oksana/c2linlc/config/webpack/environment.js
+- /home/oksana/c2linlc/config/webpack/development.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js
+- /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js
+- /home/oksana/c2linlc/node_modules/webpack/bin/webpack.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/environment.js:1:87)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at Object.<anonymous> (/home/oksana/c2linlc/config/webpack/development.js:3:21)
+    at Module._compile (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (/home/oksana/c2linlc/node_modules/v8-compile-cache/v8-compile-cache.js:159:20)
+    at WEBPACK_OPTIONS (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/oksana/c2linlc/node_modules/yargs/yargs.js:576:18)
+    at /home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/oksana/c2linlc/config/webpack/environment.js',
+    '/home/oksana/c2linlc/config/webpack/development.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/utils/convert-argv.js',
+    '/home/oksana/c2linlc/node_modules/webpack-cli/bin/cli.js',
+    '/home/oksana/c2linlc/node_modules/webpack/bin/webpack.js'
+  ]
+}
+
+  Rendered layout layouts/application.html.erb (Duration: 1281.7ms | Allocations: 5840)
+Completed 500 Internal Server Error in 1284ms (ActiveRecord: 1.6ms | Allocations: 6257)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/c2linlc/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-12-15 20:11:19 +0200
+  [1m[35m (59.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (33.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 44.1ms | Allocations: 2073)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 6b8a0e3004b9eaafd974
+Version: webpack 4.46.0
+Time: 102ms
+Built at: 12/15/2021 8:11:27 PM
+
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+
+ERROR in Entry module not found: Error: Can't resolve 'babel-loader' in '/home/oksana/c2linlc'
+
+
+(node:26856) DeprecationWarning: Tapable.apply is deprecated. Call apply on the plugin directly instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:26856) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
+
+[1m[31mInsufficient number of arguments or no entry found.
+[1m[31mAlternatively, run 'webpack(-cli) --help' for usage info.[39m[22m
+
+(node:26856) DeprecationWarning: Compilation.applyPlugins is deprecated. Use new API on `.hooks` instead
+
+  Rendered layout layouts/application.html.erb (Duration: 5860.2ms | Allocations: 9470)
+Completed 500 Internal Server Error in 5991ms (ActiveRecord: 38.5ms | Allocations: 12240)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.js in /home/oksana/c2linlc/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    10:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for ::1 at 2021-12-15 21:36:30 +0200
+  [1m[35m (24.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (71.4ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:16
+  Rendered visits/index.html.erb within layouts/application (Duration: 125.3ms | Allocations: 2073)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/oksana/c2linlc/public/packs
+[Webpacker] Hash: 2034dd941d5476d8645c
+Version: webpack 4.46.0
+Time: 2796ms
+Built at: 12/15/2021 9:36:39 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-3dd0dc24d9c39bc09227.js    125 KiB  application  [emitted] [immutable]  application
+js/application-3dd0dc24d9c39bc09227.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-3dd0dc24d9c39bc09227.js js/application-3dd0dc24d9c39bc09227.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 7251.0ms | Allocations: 8588)
+Completed 200 OK in 7383ms (Views: 7185.4ms | ActiveRecord: 117.6ms | Allocations: 11391)
+
+
