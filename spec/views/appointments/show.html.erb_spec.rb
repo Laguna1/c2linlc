@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "apointments/show", type: :view do
+RSpec.describe "appointments/show", type: :view do
   before(:each) do
-    @apointment = assign(:apointment, Apointment.create!(
+    @appointment = assign(:appointment, Appointment.create!(
       visit: nil,
       receipt: "MyText"
     ))

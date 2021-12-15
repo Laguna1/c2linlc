@@ -12,9 +12,9 @@
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/apointments", type: :request do
+RSpec.describe "/appointments", type: :request do
   
-  # Apointment. As you add validations to Apointment, be sure to
+  # Appointment. As you add validations to Appointment, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -26,58 +26,58 @@ RSpec.describe "/apointments", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Apointment.create! valid_attributes
-      get apointments_url
+      Appointment.create! valid_attributes
+      get appointments_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      apointment = Apointment.create! valid_attributes
-      get apointment_url(apointment)
+      appointment = Appointment.create! valid_attributes
+      get appointment_url(appointment)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_apointment_url
+      get new_appointment_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /edit" do
     it "render a successful response" do
-      apointment = Apointment.create! valid_attributes
-      get edit_apointment_url(apointment)
+      appointment = Appointment.create! valid_attributes
+      get edit_appointment_url(appointment)
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Apointment" do
+      it "creates a new Appointment" do
         expect {
-          post apointments_url, params: { apointment: valid_attributes }
-        }.to change(Apointment, :count).by(1)
+          post appointments_url, params: { appointment: valid_attributes }
+        }.to change(Appointment, :count).by(1)
       end
 
-      it "redirects to the created apointment" do
-        post apointments_url, params: { apointment: valid_attributes }
-        expect(response).to redirect_to(apointment_url(Apointment.last))
+      it "redirects to the created appointment" do
+        post appointments_url, params: { appointment: valid_attributes }
+        expect(response).to redirect_to(appointment_url(Appointment.last))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Apointment" do
+      it "does not create a new Appointment" do
         expect {
-          post apointments_url, params: { apointment: invalid_attributes }
-        }.to change(Apointment, :count).by(0)
+          post appointments_url, params: { appointment: invalid_attributes }
+        }.to change(Appointment, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post apointments_url, params: { apointment: invalid_attributes }
+        post appointments_url, params: { appointment: invalid_attributes }
         expect(response).to be_successful
       end
     end
@@ -89,42 +89,42 @@ RSpec.describe "/apointments", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested apointment" do
-        apointment = Apointment.create! valid_attributes
-        patch apointment_url(apointment), params: { apointment: new_attributes }
-        apointment.reload
+      it "updates the requested appointment" do
+        appointment = Appointment.create! valid_attributes
+        patch appointment_url(appointment), params: { appointment: new_attributes }
+        appointment.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the apointment" do
-        apointment = Apointment.create! valid_attributes
-        patch apointment_url(apointment), params: { apointment: new_attributes }
-        apointment.reload
-        expect(response).to redirect_to(apointment_url(apointment))
+      it "redirects to the appointment" do
+        appointment = Appointment.create! valid_attributes
+        patch appointment_url(appointment), params: { appointment: new_attributes }
+        appointment.reload
+        expect(response).to redirect_to(appointment_url(appointment))
       end
     end
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        apointment = Apointment.create! valid_attributes
-        patch apointment_url(apointment), params: { apointment: invalid_attributes }
+        appointment = Appointment.create! valid_attributes
+        patch appointment_url(appointment), params: { appointment: invalid_attributes }
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested apointment" do
-      apointment = Apointment.create! valid_attributes
+    it "destroys the requested appointment" do
+      appointment = Appointment.create! valid_attributes
       expect {
-        delete apointment_url(apointment)
-      }.to change(Apointment, :count).by(-1)
+        delete appointment_url(appointment)
+      }.to change(Appointment, :count).by(-1)
     end
 
-    it "redirects to the apointments list" do
-      apointment = Apointment.create! valid_attributes
-      delete apointment_url(apointment)
-      expect(response).to redirect_to(apointments_url)
+    it "redirects to the appointments list" do
+      appointment = Appointment.create! valid_attributes
+      delete appointment_url(appointment)
+      expect(response).to redirect_to(appointments_url)
     end
   end
 end
