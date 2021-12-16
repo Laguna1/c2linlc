@@ -2081,3 +2081,126 @@ FOREIGN KEY ("visit_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6524926099329136695)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVisit Create (1.2ms)[0m  [1m[32mINSERT INTO "visits" ("date", "time", "problem", "created_at", "updated_at", "creator_name") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["date", "2021-12-20"], ["time", "12:00:00"], ["problem", "Headache"], ["created_at", "2021-12-16 16:21:42.925856"], ["updated_at", "2021-12-16 16:21:42.925856"], ["creator_name", "Patient 1"]]
+  [1m[36mTRANSACTION (27.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mVisit Load (0.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" ORDER BY "visits"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["visit_id", 1], ["LIMIT", 11]]
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1[0m  [["visit_id", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAppointment Create (1.2ms)[0m  [1m[32mINSERT INTO "appointments" ("author_name", "recipe", "visit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_name", "Doctor Dulitl"], ["recipe", "Drink more water"], ["visit_id", 1], ["created_at", "2021-12-16 16:24:44.799036"], ["updated_at", "2021-12-16 16:24:44.799036"]]
+  [1m[36mTRANSACTION (26.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVisit Load (0.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["visit_id", 1], ["LIMIT", 11]]
+Started GET "/" for ::1 at 2021-12-16 18:28:47 +0200
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (2.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:20
+  Rendered visits/index.html.erb within layouts/application (Duration: 23.0ms | Allocations: 5372)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3423.8ms | Allocations: 12272)
+Completed 200 OK in 3734ms (Views: 3510.6ms | ActiveRecord: 10.4ms | Allocations: 16947)
+
+
+Started GET "/visits/1" for ::1 at 2021-12-16 18:29:03 +0200
+Processing by VisitsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVisit Load (1.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:67:in `set_visit'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/show.html.erb within layouts/application
+  Rendered visits/show.html.erb within layouts/application (Duration: 30.0ms | Allocations: 1861)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 1926)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 19.0ms | Allocations: 9072)
+
+
+  
+ActionView::Template::Error (Missing partial appointments/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/home/oksana/c2linlc/app/views"
+  * "/home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/actiontext-6.1.4.3/app/views"
+  * "/home/oksana/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/actionmailbox-6.1.4.3/app/views"
+):
+    18: <%= link_to 'Edit', edit_visit_path(@visit) %> |
+    19: <%= link_to 'Back', visits_path %>
+    20: 
+    21: <%= render 'appointments/form' %>
+  
+app/views/visits/show.html.erb:21
+Started GET "/visits/1" for ::1 at 2021-12-16 18:32:48 +0200
+Processing by VisitsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVisit Load (2.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:67:in `set_visit'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/show.html.erb within layouts/application
+  [1m[36mAppointment Load (2.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1[0m  [["visit_id", 1]]
+  ↳ app/views/visits/show.html.erb:21
+  Rendered collection of visits/_appointment.html.erb [1 times] (Duration: 10.0ms | Allocations: 4273)
+  Rendered visits/show.html.erb within layouts/application (Duration: 145.8ms | Allocations: 11028)
+  Rendered layout layouts/application.html.erb (Duration: 146.2ms | Allocations: 11092)
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 5.1ms | Allocations: 13039)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<ActionView::Base:0x00000000009240>):
+    1: <div>
+    2:   <h4>Appointment by <%= appointment.author_name %></h4>
+    3:   <p class=""><%= comment.recipe %></p>
+    4:   <p>For visit: <%= appointment.visit_id %>
+    5: </div>
+  
+app/views/visits/_appointment.html.erb:3
+app/views/visits/show.html.erb:21
+Started GET "/visits/1" for ::1 at 2021-12-16 18:33:08 +0200
+Processing by VisitsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVisit Load (1.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:67:in `set_visit'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/show.html.erb within layouts/application
+  [1m[36mAppointment Load (1.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1[0m  [["visit_id", 1]]
+  ↳ app/views/visits/show.html.erb:21
+  Rendered collection of visits/_appointment.html.erb [1 times] (Duration: 0.9ms | Allocations: 147)
+  Rendered visits/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1584)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 5013)
+Completed 200 OK in 32ms (Views: 23.6ms | ActiveRecord: 2.7ms | Allocations: 6832)
+
+
+Started GET "/visits/1" for ::1 at 2021-12-16 18:34:55 +0200
+Processing by VisitsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVisit Load (1.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:67:in `set_visit'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/show.html.erb within layouts/application
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1[0m  [["visit_id", 1]]
+  ↳ app/views/visits/show.html.erb:21
+  Rendered collection of visits/_appointment.html.erb [1 times] (Duration: 0.7ms | Allocations: 162)
+  Rendered visits/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1601)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 4900)
+Completed 200 OK in 23ms (Views: 16.2ms | ActiveRecord: 2.6ms | Allocations: 6712)
+
+
+Started GET "/visits/1" for ::1 at 2021-12-16 18:35:56 +0200
+Processing by VisitsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVisit Load (2.2ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:67:in `set_visit'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/show.html.erb within layouts/application
+  [1m[36mAppointment Load (2.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1[0m  [["visit_id", 1]]
+  ↳ app/views/visits/show.html.erb:26
+  Rendered collection of visits/_appointment.html.erb [1 times] (Duration: 0.6ms | Allocations: 157)
+  Rendered visits/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1616)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 4902)
+Completed 200 OK in 32ms (Views: 20.6ms | ActiveRecord: 4.8ms | Allocations: 6708)
+
+

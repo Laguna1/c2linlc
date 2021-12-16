@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Patient:</strong>
+  <%= @visit.creator_name %>
+</p>
+
+<p>
   <strong>Date:</strong>
   <%= @visit.date %>
 </p>
@@ -18,4 +23,4 @@
 <%= link_to 'Edit', edit_visit_path(@visit) %> |
 <%= link_to 'Back', visits_path %>
 
-<%= render 'appointments/form' %>
+<%= render partial: 'visits/appointment', collection: @visit.appointments %>
