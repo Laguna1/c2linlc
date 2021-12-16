@@ -6,10 +6,14 @@ class VisitsController < ApplicationController
   # GET /visits or /visits.json
   def index
     @visits = Visit.all
+    @appointments = Appointment.all
   end
 
   # GET /visits/1 or /visits/1.json
-  def show; end
+  def show
+    @appointment = Appointment.new
+    @appointment.visit_id = @visit.id
+  end
 
   # GET /visits/new
   def new
