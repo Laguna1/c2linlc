@@ -24,7 +24,7 @@
 <%= link_to 'Back', visits_path %>
 
 <% if @visit.appointments.exists? %>
-  <%= render partial: 'visits/appointment', collection: @visit.appointments %>
+  <p><%= render partial: 'visits/appointment', collection: @visit.appointments %></p>
 <% else %>
-  <%= render partial: 'appointments/form' %>
+  <p><%= render partial: 'appointments/form' %></p>
 <% end %>
