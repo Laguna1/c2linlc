@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class AppointmentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.visit_id = params[:visit_id]
