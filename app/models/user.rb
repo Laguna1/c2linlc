@@ -6,6 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :created_visits, class_name: 'Visit', foreign_key: 'creator_id'
+  has_many :requested_visits, class_name: 'Visit', foreign_key: 'doc_id'
+
   validates :email, uniqueness: true
   validates :mobile_no, uniqueness: true
 
