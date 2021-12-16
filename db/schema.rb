@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_222610) do
+ActiveRecord::Schema.define(version: 2021_12_16_223235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,12 @@ ActiveRecord::Schema.define(version: 2021_12_16_222610) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "creator_id"
+    t.bigint "doc_id"
     t.index ["creator_id"], name: "index_visits_on_creator_id"
+    t.index ["doc_id"], name: "index_visits_on_doc_id"
   end
 
   add_foreign_key "appointments", "visits"
   add_foreign_key "visits", "users", column: "creator_id"
+  add_foreign_key "visits", "users", column: "doc_id"
 end
