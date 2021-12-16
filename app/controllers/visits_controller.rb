@@ -8,7 +8,6 @@ class VisitsController < ApplicationController
   def index
     @visits = Visit.all
     @appointments = Appointment.all
-    @appointments = @given_appointments + @received_appointments
   end
 
   # GET /visits/1 or /visits/1.json

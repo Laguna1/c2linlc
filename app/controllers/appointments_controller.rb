@@ -13,6 +13,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:author_name, :recipe)
+    params.require(:appointment).permit(:recipe, :visit_id, :doc_id, :receiver_id)
   end
 end

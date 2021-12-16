@@ -1,6 +1,6 @@
 <div>
-  <h4>Appointment by <%= appointment.doc.fullname %></h4>
-  <p class="">Recipe: <%= appointment.recipe %></p>
-  <p>For visit: <%= appointment.visit_id %>, <%= appointment.visit.creator.fullname %></p>
+  <h4>Appointment by "<%= appointment.doc.fullname %>" to:  "<%= appointment.visit.creator.fullname %>" for visit: "<%= appointment.visit_id %>"</h4>
+  <p class="">Recipe: <strong><%= appointment.recipe %></strong></p>
+  <p></p>
   <p>Created at: <%= appointment.created_at %></p>
 </div>
