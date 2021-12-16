@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Visit < ApplicationRecord
-  has_one :appointment
+  has_many :appointments
 
   validates :problem, presence: true, length: { minimum: 7, maximum: 300 }
   validate :time_must_be_greater_than_time_now
