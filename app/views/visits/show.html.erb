@@ -23,4 +23,8 @@
 <%= link_to 'Edit', edit_visit_path(@visit) %> |
 <%= link_to 'Back', visits_path %>
 
-<%= render partial: 'visits/appointment', collection: @visit.appointments %>
+<% if @visit.appointments.exists? %>
+  <%= render partial: 'visits/appointment', collection: @visit.appointments %>
+<% else %>
+  <%= render partial: 'appointments/form' %>
+<% end %>
