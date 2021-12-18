@@ -29,7 +29,7 @@ class VisitsController < ApplicationController
   # POST /visits or /visits.json
   def create
     @visit = current_user.created_visits.build(visit_params)
-    
+
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }

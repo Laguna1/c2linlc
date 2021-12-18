@@ -20,5 +20,16 @@
   <%= @user.mobile_no %>
 </p>
 
+<p>Created visits: <strong><%= @user.created_visits.count %></strong> Received appointments: <strong><%= @user.received_appointments.count %></strong> </p>
+  <strong>All my visits</strong>
+  <% @user.created_visits.each do |cr_vis| %>
+       <p>Visit_id: <%= cr_vis.id %></p>
+       <p>To doctor: <%= cr_vis.doc.fullname %></p>
+  <% end %>
+<p>Requested visits: <strong><%= @user.requested_visits.count %></strong>  Received appointments: <strong><%= @user.given_appointments.count %></strong> </p>
+  <% @user.requested_visits.each do |req_vis| %>
+       <p>Visit_id: <%= req_vis.id %></p>
+       <p>From patient: <%= req_vis.creator.fullname %></p>
+  <% end %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
