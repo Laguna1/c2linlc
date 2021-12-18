@@ -12,6 +12,8 @@ class VisitsController < ApplicationController
 
   # GET /visits/1 or /visits/1.json
   def show
+    @creator = @visit.creator
+    @doc = @visit.doc
     @appointment = Appointment.new
     @appointment.visit_id = @visit.id
   end
@@ -26,8 +28,8 @@ class VisitsController < ApplicationController
 
   # POST /visits or /visits.json
   def create
-    @visit = Visit.new(visit_params)
-
+    @visit = current_user.created_visits.build(visit_params)
+    
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
@@ -70,6 +72,6 @@ class VisitsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def visit_params
-    params.require(:visit).permit(:date, :time, :problem)
+    params.require(:visit).permit(:date, :time, :problem, :creator_id, :doc_id)
   end
 end

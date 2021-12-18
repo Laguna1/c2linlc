@@ -5131,3 +5131,350 @@ Completed 200 OK in 37ms (Views: 23.4ms | ActiveRecord: 8.6ms | Allocations: 954
   [1m[35m (50.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 1]]
   [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."receiver_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["receiver_id", 1], ["LIMIT", 11]]
   [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."receiver_id" = $1[0m  [["receiver_id", 1]]
+Started GET "/" for ::1 at 2021-12-18 19:14:21 +0200
+  [1m[35m (181.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+Completed 401 Unauthorized in 178ms (ActiveRecord: 0.0ms | Allocations: 1698)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-12-18 19:14:26 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.3ms | Allocations: 611)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 180.1ms | Allocations: 2769)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1469.4ms | Allocations: 9164)
+Completed 200 OK in 2017ms (Views: 1746.0ms | ActiveRecord: 210.7ms | Allocations: 17089)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-12-18 19:14:56 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"mobile_no"=>"380957029857", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (100.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."mobile_no" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["mobile_no", "380957029857"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in `find_first_by_auth_conditions'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (88.1ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2021-12-18 17:14:58.340760"], ["updated_at", "2021-12-18 17:14:58.341374"], ["id", 1]]
+  [1m[36mTRANSACTION (47.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 2024ms (ActiveRecord: 238.2ms | Allocations: 10712)
+
+
+Started GET "/" for ::1 at 2021-12-18 19:14:58 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (119.9ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:22
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  Rendered visits/index.html.erb within layouts/application (Duration: 323.3ms | Allocations: 10360)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 328.6ms | Allocations: 13524)
+Completed 200 OK in 479ms (Views: 199.3ms | ActiveRecord: 132.1ms | Allocations: 17897)
+
+
+Started GET "/users" for ::1 at 2021-12-18 19:15:10 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (Duration: 327.1ms | Allocations: 1351)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 331.8ms | Allocations: 4620)
+Completed 200 OK in 341ms (Views: 332.8ms | ActiveRecord: 2.6ms | Allocations: 7108)
+
+
+Started GET "/users/1" for ::1 at 2021-12-18 19:15:21 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 55.3ms | Allocations: 892)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 61.0ms | Allocations: 4162)
+Completed 200 OK in 72ms (Views: 61.9ms | ActiveRecord: 2.6ms | Allocations: 6626)
+
+
+Started GET "/visits" for ::1 at 2021-12-18 19:15:25 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:22
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  Rendered visits/index.html.erb within layouts/application (Duration: 29.3ms | Allocations: 4570)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 7825)
+Completed 200 OK in 46ms (Views: 30.0ms | ActiveRecord: 10.5ms | Allocations: 9524)
+
+
+Started GET "/visits/new" for ::1 at 2021-12-18 19:15:28 +0200
+Processing by VisitsController#new as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 848.6ms | Allocations: 6154)
+  Rendered visits/new.html.erb within layouts/application (Duration: 923.2ms | Allocations: 7068)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 929.0ms | Allocations: 10222)
+Completed 200 OK in 940ms (Views: 930.0ms | ActiveRecord: 1.9ms | Allocations: 12035)
+
+
+Started POST "/visits" for ::1 at 2021-12-18 19:15:45 +0200
+Processing by VisitsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "visit"=>{"date(1i)"=>"2021", "date(2i)"=>"12", "date(3i)"=>"10", "time(1i)"=>"2021", "time(2i)"=>"12", "time(3i)"=>"18", "time(4i)"=>"17", "time(5i)"=>"15", "problem"=>";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;", "doc_id"=>"4"}, "commit"=>"Create Visit"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :doc_id[0m
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 7.4ms | Allocations: 3818)
+  Rendered visits/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3923)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 7119)
+Completed 422 Unprocessable Entity in 30ms (Views: 15.2ms | ActiveRecord: 2.1ms | Allocations: 9972)
+
+
+Started GET "/visits" for ::1 at 2021-12-18 19:17:54 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:22
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  Rendered visits/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 3987)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 7246)
+Completed 200 OK in 20ms (Views: 12.3ms | ActiveRecord: 4.7ms | Allocations: 8927)
+
+
+Started GET "/visits/new" for ::1 at 2021-12-18 19:17:57 +0200
+Processing by VisitsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 7.2ms | Allocations: 2786)
+  Rendered visits/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 2891)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 6726)
+Completed 200 OK in 31ms (Views: 23.2ms | ActiveRecord: 1.4ms | Allocations: 8396)
+
+
+Started GET "/visits/new" for ::1 at 2021-12-18 19:18:40 +0200
+Processing by VisitsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 12.9ms | Allocations: 2838)
+  Rendered visits/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 2944)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 6244)
+Completed 200 OK in 79ms (Views: 29.1ms | ActiveRecord: 14.4ms | Allocations: 17894)
+
+
+Started POST "/visits" for ::1 at 2021-12-18 19:18:54 +0200
+Processing by VisitsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "visit"=>{"date(1i)"=>"2022", "date(2i)"=>"12", "date(3i)"=>"18", "time(1i)"=>"2021", "time(2i)"=>"12", "time(3i)"=>"18", "time(4i)"=>"17", "time(5i)"=>"18", "problem"=>";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;", "doc_id"=>"4"}, "commit"=>"Create Visit"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:32:in `block in create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:32:in `block in create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/visits_controller.rb:32:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 13.8ms | Allocations: 3146)
+  Rendered visits/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 3251)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 6429)
+Completed 422 Unprocessable Entity in 68ms (Views: 31.6ms | ActiveRecord: 9.5ms | Allocations: 12139)
+
+
+Started GET "/visits" for ::1 at 2021-12-18 19:19:10 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:22
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  Rendered visits/index.html.erb within layouts/application (Duration: 42.2ms | Allocations: 8644)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 95.2ms | Allocations: 11861)
+Completed 200 OK in 141ms (Views: 82.2ms | ActiveRecord: 23.8ms | Allocations: 20610)
+
+
+Started GET "/visits/new" for ::1 at 2021-12-18 19:19:12 +0200
+Processing by VisitsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 7.9ms | Allocations: 2778)
+  Rendered visits/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 2988)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 6247)
+Completed 200 OK in 42ms (Views: 26.4ms | ActiveRecord: 1.2ms | Allocations: 8397)
+
+
+Started POST "/visits" for ::1 at 2021-12-18 19:19:23 +0200
+Processing by VisitsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "visit"=>{"date(1i)"=>"2022", "date(2i)"=>"12", "date(3i)"=>"18", "time(1i)"=>"2021", "time(2i)"=>"12", "time(3i)"=>"18", "time(4i)"=>"17", "time(5i)"=>"19", "problem"=>";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;", "doc_id"=>"4"}, "commit"=>"Create Visit"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:32:in `block in create'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:32:in `block in create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/visits_controller.rb:32:in `block in create'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 6.8ms | Allocations: 3146)
+  Rendered visits/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3251)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 6429)
+Completed 422 Unprocessable Entity in 46ms (Views: 14.1ms | ActiveRecord: 5.6ms | Allocations: 11510)
+
+
+Started GET "/visits" for ::1 at 2021-12-18 19:20:21 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (1.5ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:22
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  Rendered visits/index.html.erb within layouts/application (Duration: 34.2ms | Allocations: 8622)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 42.1ms | Allocations: 11828)
+Completed 200 OK in 71ms (Views: 31.2ms | ActiveRecord: 19.7ms | Allocations: 20567)
+
+
+Started GET "/visits/new" for ::1 at 2021-12-18 19:20:24 +0200
+Processing by VisitsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 9.1ms | Allocations: 2792)
+  Rendered visits/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 3472)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 6714)
+Completed 200 OK in 32ms (Views: 24.7ms | ActiveRecord: 1.5ms | Allocations: 8383)
+
+
+Started POST "/visits" for ::1 at 2021-12-18 19:20:34 +0200
+Processing by VisitsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "visit"=>{"date(1i)"=>"2022", "date(2i)"=>"12", "date(3i)"=>"18", "time(1i)"=>"2021", "time(2i)"=>"12", "time(3i)"=>"18", "time(4i)"=>"17", "time(5i)"=>"20", "problem"=>";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;", "doc_id"=>"4"}, "commit"=>"Create Visit"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.7ms | Allocations: 5122)
+
+
+  
+NameError (undefined local variable or method `creator_id' for #<VisitsController:0x00000000010b80>
+Did you mean?  create):
+  
+app/controllers/visits_controller.rb:30:in `create'
+Started POST "/visits" for ::1 at 2021-12-18 19:21:06 +0200
+Processing by VisitsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "visit"=>{"date(1i)"=>"2022", "date(2i)"=>"12", "date(3i)"=>"18", "time(1i)"=>"2021", "time(2i)"=>"12", "time(3i)"=>"18", "time(4i)"=>"17", "time(5i)"=>"20", "problem"=>";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;", "doc_id"=>"4"}, "commit"=>"Create Visit"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 13.8ms | Allocations: 13272)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/visits_controller.rb:30:in `create'
+Started POST "/visits" for ::1 at 2021-12-18 19:21:26 +0200
+Processing by VisitsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "visit"=>{"date(1i)"=>"2022", "date(2i)"=>"12", "date(3i)"=>"18", "time(1i)"=>"2021", "time(2i)"=>"12", "time(3i)"=>"18", "time(4i)"=>"17", "time(5i)"=>"20", "problem"=>";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;", "doc_id"=>"4"}, "commit"=>"Create Visit"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 16.5ms | Allocations: 15141)
+
+
+  
+NameError (undefined local variable or method `visit' for #<VisitsController:0x00000000015018>
+Did you mean?  @visit):
+  
+app/controllers/visits_controller.rb:30:in `create'
+Started POST "/visits" for ::1 at 2021-12-18 19:24:29 +0200
+Processing by VisitsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "visit"=>{"date(1i)"=>"2022", "date(2i)"=>"12", "date(3i)"=>"18", "time(1i)"=>"2021", "time(2i)"=>"12", "time(3i)"=>"18", "time(4i)"=>"17", "time(5i)"=>"20", "problem"=>";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;", "doc_id"=>"4"}, "commit"=>"Create Visit"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/visits_controller.rb:34:in `block in create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:34:in `block in create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:34:in `block in create'
+  [1m[36mVisit Create (36.6ms)[0m  [1m[32mINSERT INTO "visits" ("date", "time", "problem", "created_at", "updated_at", "creator_id", "doc_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["date", "2022-12-18"], ["time", "17:20:00"], ["problem", ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"], ["created_at", "2021-12-18 17:24:29.703823"], ["updated_at", "2021-12-18 17:24:29.703823"], ["creator_id", 1], ["doc_id", 4]]
+  ↳ app/controllers/visits_controller.rb:34:in `block in create'
+  [1m[36mTRANSACTION (21.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/visits_controller.rb:34:in `block in create'
+Redirected to http://localhost:3000/visits/3
+Completed 302 Found in 182ms (ActiveRecord: 79.3ms | Allocations: 18677)
+
+
+Started GET "/visits/3" for ::1 at 2021-12-18 19:24:29 +0200
+Processing by VisitsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mVisit Load (1.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:70:in `set_visit'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:15:in `show'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/visits_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering visits/show.html.erb within layouts/application
+  [1m[36mAppointment Exists? (127.0ms)[0m  [1m[34mSELECT 1 AS one FROM "appointments" WHERE "appointments"."visit_id" = $1 LIMIT $2[0m  [["visit_id", 3], ["LIMIT", 1]]
+  ↳ app/views/visits/show.html.erb:30
+  Rendered appointments/_form.html.erb (Duration: 59.7ms | Allocations: 1021)
+  Rendered visits/show.html.erb within layouts/application (Duration: 225.7ms | Allocations: 3139)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 231.3ms | Allocations: 6476)
+Completed 200 OK in 273ms (Views: 105.6ms | ActiveRecord: 138.5ms | Allocations: 14510)
+
+
