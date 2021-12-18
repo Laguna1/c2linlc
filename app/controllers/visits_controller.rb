@@ -17,6 +17,7 @@ class VisitsController < ApplicationController
     @appointment = Appointment.new
     @appointment.visit_id = @visit.id
     @appointment.receiver_id = @visit.creator.id
+    @appointment = @visit.appointment.first
   end
 
   # GET /visits/new
