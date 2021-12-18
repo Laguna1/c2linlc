@@ -4,9 +4,10 @@ class AppointmentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @appointment = Appointment.new(appointment_params)
+    @appointment = current_user.given_appointments.build(appointment_params)
+    
     @appointment.visit_id = params[:visit_id]
-
+    @appointment.receiver_id = @appointment.visit.creator.id
     @appointment.save
 
     redirect_to visit_path(@appointment.visit)
