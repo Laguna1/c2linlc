@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Visit < ApplicationRecord
+  belongs_to :creator, class_name: 'User'
+  belongs_to :doc, class_name: 'User'
   has_many :appointments
 
   validates :problem, presence: true, length: { minimum: 7, maximum: 300 }
