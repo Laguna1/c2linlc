@@ -26,7 +26,7 @@
        <p>Visit_id: <%= cr_vis.id %></p>
        <p>To doctor: <%= cr_vis.doc.fullname %></p>
        <p>My problem: <%= cr_vis.problem %></p>
-       <p>Teceived appointment: <%= cr_vis.appointments.first.recipe %></p>
+       <p>Received appointment: <%= cr_vis.appointments.first.recipe %></p>
   <% end %>
 <p>Requested visits: <strong><%= @user.requested_visits.count %></strong>  Received appointments: <strong><%= @user.given_appointments.count %></strong> </p>
   <% @user.requested_visits.each do |visit| %>
