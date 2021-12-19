@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_19_161424) do
+ActiveRecord::Schema.define(version: 2021_12_19_161633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(version: 2021_12_19_161424) do
     t.string "mobile_no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "role_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   create_table "visits", force: :cascade do |t|
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_12_19_161424) do
   add_foreign_key "appointments", "users", column: "doc_id"
   add_foreign_key "appointments", "users", column: "receiver_id"
   add_foreign_key "appointments", "visits"
+  add_foreign_key "users", "roles"
   add_foreign_key "visits", "users", column: "creator_id"
   add_foreign_key "visits", "users", column: "doc_id"
 end
