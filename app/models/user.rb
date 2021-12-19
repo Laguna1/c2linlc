@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :role
+  belongs_to :role, optional: true
   has_many :created_visits, class_name: 'Visit', foreign_key: 'creator_id'
   has_many :requested_visits, class_name: 'Visit', foreign_key: 'doc_id'
   has_many :given_appointments, class_name: 'Appointment', foreign_key: 'doc_id'
@@ -15,6 +15,24 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :mobile_no, uniqueness: true
 
+  before_save :assign_role
+
+  def assign_role
+    self.role = Role.find_by name: 'Patient' if role.nil?
+  end
+
+  def admin?
+    role.name == 'Admin'
+  end
+
+  def doctor?
+    role.name == 'Doctor'
+  end
+
+  def patient?
+    role.name == 'Patient'
+  end
+  
   # Search user by mobile number(not email)
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

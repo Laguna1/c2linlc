@@ -18,7 +18,9 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.role.name %></td>
+        
+        <td><%= show_role(user) %></td>
+        
         <td><%= user.fullname %></td>
         <td><%= user.email %></td>
         <td><%= user.mobile_no %></td>
