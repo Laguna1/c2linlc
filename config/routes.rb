@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :roles
+  resources :categories, except: [:destroy]
   devise_for :users
   root 'visits#index'
 
