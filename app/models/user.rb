@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   belongs_to :role, optional: true
   belongs_to :category, optional: true
-  belongs_to :doctor_category
+  # belongs_to :doctor_category
 
   has_many :created_visits, class_name: 'Visit', foreign_key: 'creator_id'
   has_many :requested_visits, class_name: 'Visit', foreign_key: 'doc_id'
