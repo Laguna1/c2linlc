@@ -32,7 +32,7 @@ class User < ApplicationRecord
   def patient?
     role.name == 'Patient'
   end
-  
+
   # Search user by mobile number(not email)
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

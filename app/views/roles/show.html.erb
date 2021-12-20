@@ -12,8 +12,15 @@
 
 <p>
   <strong>Associated users:</strong>
-  <%= @associated_users %>
-</p>
+</p> 
+<ol>
+   <% @associated_users.each do |au| %>
+     <li><%= link_to user_path(au) do %>
+        <%= au.fullname %>
+      <% end %>
+      </li>
 
+  <% end %>
+</ol>
 <%= link_to 'Edit', edit_role_path(@role) %> |
 <%= link_to 'Back', roles_path %>

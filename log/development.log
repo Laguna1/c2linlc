@@ -12100,3 +12100,1061 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 42ms (Views: 26.5ms | ActiveRecord: 7.4ms | Allocations: 12216)
 
 
+Started GET "/roles" for ::1 at 2021-12-19 19:14:53 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1523)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (2.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 7110)
+Completed 200 OK in 39ms (Views: 29.4ms | ActiveRecord: 8.1ms | Allocations: 8095)
+
+
+Started GET "/roles/1" for ::1 at 2021-12-19 19:14:55 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:67:in `set_role'
+  [1m[36mUser Exists? (6.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:11:in `show'
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 1]]
+  ↳ app/controllers/roles_controller.rb:14:in `map'
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 12.4ms | Allocations: 6044)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fa9188b2d10>):
+  
+app/controllers/roles_controller.rb:14:in `map'
+app/controllers/roles_controller.rb:14:in `show'
+Started GET "/roles/1" for ::1 at 2021-12-19 19:16:09 +0200
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 1]]
+  ↳ app/controllers/roles_controller.rb:16:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  Rendered roles/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 291)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 5868)
+Completed 200 OK in 78ms (Views: 27.8ms | ActiveRecord: 18.3ms | Allocations: 18676)
+
+
+Started GET "/visits/new" for ::1 at 2021-12-19 19:18:54 +0200
+Processing by VisitsController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/new.html.erb within layouts/application
+  Rendered visits/_form.html.erb (Duration: 44.3ms | Allocations: 3577)
+  Rendered visits/new.html.erb within layouts/application (Duration: 83.3ms | Allocations: 3921)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 90.3ms | Allocations: 7993)
+Completed 200 OK in 133ms (Views: 92.4ms | ActiveRecord: 11.2ms | Allocations: 15073)
+
+
+Started GET "/" for ::1 at 2021-12-20 22:23:29 +0200
+  [1m[35m (118.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VisitsController#index as HTML
+Completed 401 Unauthorized in 83ms (ActiveRecord: 0.0ms | Allocations: 1711)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-12-20 22:23:34 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 74.2ms | Allocations: 614)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 724.1ms | Allocations: 2772)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2536.6ms | Allocations: 9568)
+Completed 200 OK in 3206ms (Views: 2824.9ms | ActiveRecord: 328.2ms | Allocations: 17951)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-12-20 22:23:42 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"mobile_no"=>"380991111111", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (133.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."mobile_no" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["mobile_no", "380991111111"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39:in `find_first_by_auth_conditions'
+Redirected to http://localhost:3000/
+Completed 302 Found in 1069ms (ActiveRecord: 136.2ms | Allocations: 4601)
+
+
+Started GET "/" for ::1 at 2021-12-20 22:23:44 +0200
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering visits/index.html.erb within layouts/application
+  [1m[36mVisit Load (240.8ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/views/visits/index.html.erb:22
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:28
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/visits/index.html.erb:29
+  Rendered visits/index.html.erb within layouts/application (Duration: 482.0ms | Allocations: 13106)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mRole Load (64.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 594.5ms | Allocations: 21002)
+Completed 200 OK in 752ms (Views: 272.8ms | ActiveRecord: 327.8ms | Allocations: 25114)
+
+
+Started GET "/users" for ::1 at 2021-12-20 22:23:47 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mRole Load (1.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 19.6ms | Allocations: 5491)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 9925)
+Completed 200 OK in 47ms (Views: 30.4ms | ActiveRecord: 7.0ms | Allocations: 12249)
+
+
+Started GET "/users" for ::1 at 2021-12-20 22:34:40 +0200
+Processing by UsersController#index as HTML
+Started GET "/roles" for ::1 at 2021-12-20 22:34:42 +0200
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 108.3ms | Allocations: 8884)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 614.0ms | Allocations: 13080)
+Completed 200 OK in 1246ms (Views: 730.0ms | ActiveRecord: 458.2ms | Allocations: 25750)
+
+
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 42.6ms | Allocations: 4461)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 73.8ms | Allocations: 15125)
+Completed 200 OK in 78ms (Views: 57.9ms | ActiveRecord: 17.3ms | Allocations: 17301)
+
+
+Started GET "/roles" for ::1 at 2021-12-20 22:34:49 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (1.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1268)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (3.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 28.6ms | Allocations: 6817)
+Completed 200 OK in 31ms (Views: 22.7ms | ActiveRecord: 7.1ms | Allocations: 7232)
+
+
+Started GET "/roles/1" for ::1 at 2021-12-20 22:34:51 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 1]]
+  ↳ app/controllers/roles_controller.rb:16:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  Rendered roles/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2442)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2506)
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 4.6ms | Allocations: 7149)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "Second Patient , Оксана Петрова":String):
+    14:   <strong>Associated users:</strong>
+    15: </p> 
+    16: <ol>
+    17:   <%= @associated_users.each do |a_u| %>
+    18:     <li><%= a_u.fullname %></li>
+    19:   <% end %>
+    20: </ol>
+  
+app/views/roles/show.html.erb:17
+Started GET "/roles/1" for ::1 at 2021-12-20 22:35:20 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRole Load (3.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 1]]
+  ↳ app/controllers/roles_controller.rb:16:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  Rendered roles/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2523)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 2587)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 5.6ms | Allocations: 6120)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "Second Patient , Оксана Петрова":String):
+    14:   <strong>Associated users:</strong>
+    15: </p> 
+    16: <ol>
+    17:   <%= @associated_users.each do |a_u| %>
+    18:     <li><%= @a_u.fullname %></li>
+    19:   <% end %>
+    20: </ol>
+  
+app/views/roles/show.html.erb:17
+Started GET "/roles/1" for ::1 at 2021-12-20 22:35:54 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRole Load (4.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 1]]
+  ↳ app/controllers/roles_controller.rb:16:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  Rendered roles/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2553)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2617)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 7.3ms | Allocations: 5902)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "Second Patient , Оксана Петрова":String):
+    14:   <strong>Associated users:</strong>
+    15: </p> 
+    16: <ol>
+    17:    <% @associated_users.each do |au| %>
+    18:      <li><%= link_to user_path(au) do %>
+    19:         <%= au.fullname %>
+    20:       <% end %>
+  
+app/views/roles/show.html.erb:17
+Started GET "/roles/1" for ::1 at 2021-12-20 22:36:54 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 1]]
+  ↳ app/views/roles/show.html.erb:17
+  Rendered roles/show.html.erb within layouts/application (Duration: 21.0ms | Allocations: 5756)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 38.9ms | Allocations: 11459)
+Completed 200 OK in 81ms (Views: 31.9ms | ActiveRecord: 22.4ms | Allocations: 18653)
+
+
+Started GET "/users/8" for ::1 at 2021-12-20 22:37:00 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[35m (66.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 8]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[35m (68.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."receiver_id" = $1[0m  [["receiver_id", 8]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mVisit Load (1.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 8]]
+  ↳ app/views/users/show.html.erb:30
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[36mVisit Load (1.6ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:37
+  Rendered users/show.html.erb within layouts/application (Duration: 308.9ms | Allocations: 11152)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 316.2ms | Allocations: 15159)
+Completed 200 OK in 328ms (Views: 169.8ms | ActiveRecord: 151.1ms | Allocations: 18154)
+
+
+Started GET "/users/1" for ::1 at 2021-12-20 22:37:13 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."receiver_id" = $1[0m  [["receiver_id", 1]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mVisit Load (2.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 1]]
+  ↳ app/views/users/show.html.erb:30
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:32
+  [1m[36mAppointment Load (1.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1 ORDER BY "appointments"."id" ASC LIMIT $2[0m  [["visit_id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:34
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:32
+  [1m[36mAppointment Load (1.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1 ORDER BY "appointments"."id" ASC LIMIT $2[0m  [["visit_id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:34
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:32
+  [1m[36mAppointment Load (1.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."visit_id" = $1 ORDER BY "appointments"."id" ASC LIMIT $2[0m  [["visit_id", 3], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:34
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 1]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."doc_id" = $1[0m  [["doc_id", 1]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[36mVisit Load (0.9ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 1]]
+  ↳ app/views/users/show.html.erb:37
+  Rendered users/show.html.erb within layouts/application (Duration: 95.0ms | Allocations: 18788)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 102.8ms | Allocations: 22783)
+Completed 200 OK in 115ms (Views: 66.7ms | ActiveRecord: 40.4ms | Allocations: 25020)
+
+
+Started GET "/users" for ::1 at 2021-12-20 22:37:19 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mRole Load (3.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mRole Load (1.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 30.6ms | Allocations: 6066)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 45.5ms | Allocations: 9936)
+Completed 200 OK in 57ms (Views: 40.0ms | ActiveRecord: 9.4ms | Allocations: 11729)
+
+
+Started GET "/users/8/edit" for ::1 at 2021-12-20 22:37:24 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/users/_form.html.erb:16
+  Rendered users/_form.html.erb (Duration: 76.7ms | Allocations: 2794)
+  Rendered users/edit.html.erb within layouts/application (Duration: 134.3ms | Allocations: 3733)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 141.4ms | Allocations: 7832)
+Completed 200 OK in 151ms (Views: 139.8ms | ActiveRecord: 5.2ms | Allocations: 10197)
+
+
+Started PATCH "/users/8" for ::1 at 2021-12-20 22:37:30 +0200
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"role_id"=>"1", "fullname"=>"Second Patient ", "mobile_no"=>"380941111111", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"8"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:42:in `update'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", ""], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_no" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["mobile_no", "380941111111"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+  [1m[36mRole Load (1.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `assign_role'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:42:in `update'
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 29ms (ActiveRecord: 9.3ms | Allocations: 7286)
+
+
+Started GET "/users/8" for ::1 at 2021-12-20 22:37:30 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 8]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."receiver_id" = $1[0m  [["receiver_id", 8]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 8]]
+  ↳ app/views/users/show.html.erb:30
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[36mVisit Load (1.7ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:37
+  Rendered users/show.html.erb within layouts/application (Duration: 24.2ms | Allocations: 5599)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 32.2ms | Allocations: 9711)
+Completed 200 OK in 40ms (Views: 21.3ms | ActiveRecord: 13.5ms | Allocations: 11954)
+
+
+Started GET "/roles" for ::1 at 2021-12-20 22:37:34 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1556)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (4.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 7130)
+Completed 200 OK in 39ms (Views: 28.6ms | ActiveRecord: 8.7ms | Allocations: 7659)
+
+
+Started GET "/roles/3" for ::1 at 2021-12-20 22:37:38 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  Rendered roles/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1500)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1564)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.5ms | Allocations: 3364)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    14:   <strong>Associated users:</strong>
+    15: </p> 
+    16: <ol>
+    17:    <% @associated_users.each do |au| %>
+    18:      <li><%= link_to user_path(au) do %>
+    19:         <%= au.fullname %>
+    20:       <% end %>
+  
+app/views/roles/show.html.erb:17
+Started GET "/roles" for ::1 at 2021-12-20 22:37:55 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1258)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 6248)
+Completed 200 OK in 36ms (Views: 28.7ms | ActiveRecord: 6.2ms | Allocations: 6655)
+
+
+Started GET "/roles/2" for ::1 at 2021-12-20 22:38:00 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 2]]
+  ↳ app/views/roles/show.html.erb:17
+  Rendered roles/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 990)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (2.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | Allocations: 5963)
+Completed 200 OK in 36ms (Views: 22.1ms | ActiveRecord: 8.1ms | Allocations: 7792)
+
+
+Started GET "/roles/1" for ::1 at 2021-12-20 22:38:08 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 1]]
+  ↳ app/views/roles/show.html.erb:17
+  Rendered roles/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 951)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (2.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 6033)
+Completed 200 OK in 45ms (Views: 29.1ms | ActiveRecord: 8.7ms | Allocations: 8305)
+
+
+Started GET "/users/8" for ::1 at 2021-12-20 22:38:10 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRole Load (5.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 8]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."receiver_id" = $1[0m  [["receiver_id", 8]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mVisit Load (2.1ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."creator_id" = $1[0m  [["creator_id", 8]]
+  ↳ app/views/users/show.html.erb:30
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments" WHERE "appointments"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:36
+  [1m[36mVisit Load (1.0ms)[0m  [1m[34mSELECT "visits".* FROM "visits" WHERE "visits"."doc_id" = $1[0m  [["doc_id", 8]]
+  ↳ app/views/users/show.html.erb:37
+  Rendered users/show.html.erb within layouts/application (Duration: 44.9ms | Allocations: 6174)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mRole Load (1.8ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 10280)
+Completed 200 OK in 67ms (Views: 38.4ms | ActiveRecord: 21.3ms | Allocations: 12517)
+
+
+Started GET "/roles" for ::1 at 2021-12-20 22:38:15 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1259)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (2.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 39.7ms | Allocations: 6810)
+Completed 200 OK in 42ms (Views: 30.1ms | ActiveRecord: 11.1ms | Allocations: 7214)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2021-12-20 22:38:16 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:21:in `assign_role'
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `assign_role'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 325ms (ActiveRecord: 4.4ms | Allocations: 4746)
+
+
+Started GET "/" for ::1 at 2021-12-20 22:38:16 +0200
+Processing by VisitsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 324)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-12-20 22:38:16 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 542)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 27.3ms | Allocations: 1835)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 5177)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 0.0ms | Allocations: 6719)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-12-20 22:38:20 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 5.8ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 51.1ms | Allocations: 2277)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.2ms | Allocations: 5577)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 0.0ms | Allocations: 6810)
+
+
+Started POST "/users" for ::1 at 2021-12-20 22:39:02 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fullname"=>"Admin", "mobile_no"=>"380733333333", "email"=>"admin@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_no" = $1 LIMIT $2[0m  [["mobile_no", "380733333333"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.6ms | Allocations: 561)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2500)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 5783)
+Completed 200 OK in 368ms (Views: 12.5ms | ActiveRecord: 23.5ms | Allocations: 13063)
+
+
+Started POST "/users" for ::1 at 2021-12-20 22:39:26 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fullname"=>"Admin", "mobile_no"=>"380733333333", "email"=>"admin@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_no" = $1 LIMIT $2[0m  [["mobile_no", "380733333333"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.0ms | Allocations: 492)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 5695)
+Completed 200 OK in 300ms (Views: 14.4ms | ActiveRecord: 4.6ms | Allocations: 11961)
+
+
+Started POST "/users" for ::1 at 2021-12-20 22:39:50 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fullname"=>"Admin", "mobile_no"=>"380733333333", "email"=>"myadmin@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_no" = $1 LIMIT $2[0m  [["mobile_no", "380733333333"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.6ms | Allocations: 492)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 5710)
+Completed 200 OK in 342ms (Views: 13.8ms | ActiveRecord: 6.0ms | Allocations: 11980)
+
+
+Started POST "/users" for ::1 at 2021-12-20 22:40:28 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fullname"=>"User Admin", "mobile_no"=>"380733333333", "email"=>"my_admin@ukr.net", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_no" = $1 LIMIT $2[0m  [["mobile_no", "380733333333"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 492)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2425)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 5693)
+Completed 200 OK in 291ms (Views: 10.8ms | ActiveRecord: 4.9ms | Allocations: 11963)
+
+
+Started POST "/users" for ::1 at 2021-12-20 22:41:00 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"fullname"=>"User Admin", "mobile_no"=>"380733333333", "email"=>"admin@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :email[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_no" = $1 LIMIT $2[0m  [["mobile_no", "380733333333"], ["LIMIT", 1]]
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", "Patient"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `assign_role'
+  [1m[36mUser Create (76.3ms)[0m  [1m[32mINSERT INTO "users" ("encrypted_password", "fullname", "mobile_no", "created_at", "updated_at", "role_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["encrypted_password", "$2a$12$pAOktsjRtmRLn2kzyxQN2u39f2N4etkA4UMR8NlBo.XAF63xXuAYS"], ["fullname", "User Admin"], ["mobile_no", "380733333333"], ["created_at", "2021-12-20 20:41:01.310219"], ["updated_at", "2021-12-20 20:41:01.310219"], ["role_id", 1]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 395ms (ActiveRecord: 90.9ms | Allocations: 15731)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=() already exists.
+):
+  
+rack-mini-profiler (2.3.3) lib/patches/db/pg.rb:72:in `exec_params'
+rack-mini-profiler (2.3.3) lib/patches/db/pg.rb:72:in `exec_params'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:672:in `block (2 levels) in exec_no_cache'
+activesupport (6.1.4.3) lib/active_support/dependencies/interlock.rb:48:in `block in permit_concurrent_loads'
+activesupport (6.1.4.3) lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+activesupport (6.1.4.3) lib/active_support/dependencies/interlock.rb:47:in `permit_concurrent_loads'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:671:in `block in exec_no_cache'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract_adapter.rb:696:in `block (2 levels) in log'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract_adapter.rb:695:in `block in log'
+activesupport (6.1.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract_adapter.rb:687:in `log'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:670:in `exec_no_cache'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/postgresql_adapter.rb:649:in `execute_and_clear'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/postgresql/database_statements.rb:53:in `exec_query'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract/database_statements.rb:136:in `exec_insert'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/postgresql/database_statements.rb:91:in `exec_insert'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract/database_statements.rb:171:in `insert'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract/query_cache.rb:22:in `insert'
+activerecord (6.1.4.3) lib/active_record/persistence.rb:375:in `_insert_record'
+activerecord (6.1.4.3) lib/active_record/persistence.rb:929:in `_create_record'
+activerecord (6.1.4.3) lib/active_record/counter_cache.rb:166:in `_create_record'
+activerecord (6.1.4.3) lib/active_record/locking/optimistic.rb:79:in `_create_record'
+activerecord (6.1.4.3) lib/active_record/attribute_methods/dirty.rb:201:in `_create_record'
+activerecord (6.1.4.3) lib/active_record/callbacks.rb:461:in `block in _create_record'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:106:in `run_callbacks'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:824:in `_run_create_callbacks'
+activerecord (6.1.4.3) lib/active_record/callbacks.rb:461:in `_create_record'
+activerecord (6.1.4.3) lib/active_record/timestamp.rb:108:in `_create_record'
+activerecord (6.1.4.3) lib/active_record/persistence.rb:900:in `create_or_update'
+activerecord (6.1.4.3) lib/active_record/callbacks.rb:457:in `block in create_or_update'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+activerecord (6.1.4.3) lib/active_record/autosave_association.rb:385:in `around_save_collection_association'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:824:in `_run_save_callbacks'
+activerecord (6.1.4.3) lib/active_record/callbacks.rb:457:in `create_or_update'
+activerecord (6.1.4.3) lib/active_record/timestamp.rb:126:in `create_or_update'
+activerecord (6.1.4.3) lib/active_record/persistence.rb:474:in `save'
+activerecord (6.1.4.3) lib/active_record/validations.rb:47:in `save'
+activerecord (6.1.4.3) lib/active_record/transactions.rb:298:in `block in save'
+activerecord (6.1.4.3) lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract/database_statements.rb:320:in `block in transaction'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (6.1.4.3) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+activerecord (6.1.4.3) lib/active_record/connection_adapters/abstract/database_statements.rb:320:in `transaction'
+activerecord (6.1.4.3) lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+activerecord (6.1.4.3) lib/active_record/transactions.rb:298:in `save'
+activerecord (6.1.4.3) lib/active_record/suppressor.rb:44:in `save'
+devise (4.8.1) app/controllers/devise/registrations_controller.rb:19:in `create'
+actionpack (6.1.4.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.4.3) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.4.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.4.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.4.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.4.3) lib/action_text/engine.rb:59:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.4.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.4.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.4.3) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.4.3) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.4.3) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.4.3) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.4.3) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.4.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.4.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.3) lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+actionpack (6.1.4.3) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+actionpack (6.1.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.3) lib/action_dispatch/routing/route_set.rb:842:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.4.3) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.3) lib/action_dispatch/middleware/host_authorization.rb:100:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.0) lib/rack/proxy.rb:63:in `call'
+railties (6.1.4.3) lib/rails/engine.rb:539:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2021-12-20 22:42:35 +0200
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 809)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-12-20 22:42:35 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 159)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1031)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4352)
+Completed 200 OK in 35ms (Views: 11.1ms | ActiveRecord: 7.6ms | Allocations: 10350)
+
+
+Started GET "/users" for ::1 at 2021-12-20 22:42:38 +0200
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 240)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-12-20 22:42:38 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.1ms | Allocations: 148)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1004)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 4333)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms | Allocations: 4934)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-12-20 22:42:41 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"mobile_no"=>"380991111111", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."mobile_no" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["mobile_no", "380991111111"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39:in `find_first_by_auth_conditions'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 341ms (ActiveRecord: 2.9ms | Allocations: 2519)
+
+
+Started GET "/users" for ::1 at 2021-12-20 22:42:41 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 33.1ms | Allocations: 9083)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 45.8ms | Allocations: 12868)
+Completed 200 OK in 54ms (Views: 36.7ms | ActiveRecord: 11.7ms | Allocations: 14657)
+
+
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_no" = $1 LIMIT $2[0m  [["mobile_no", "380733333333"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_no" = $1 LIMIT $2[0m  [["mobile_no", "380733333333"], ["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Create (64.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "fullname", "mobile_no", "created_at", "updated_at", "role_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "admin@mail.com"], ["encrypted_password", "$2a$12$0NJPBsE1YuX7P0WV7DC8UutZGVWKpYOpZGTnG0svwvDQ03jQqWx.q"], ["fullname", "Admin"], ["mobile_no", "380733333333"], ["created_at", "2021-12-20 20:45:54.098321"], ["updated_at", "2021-12-20 20:45:54.098321"], ["role_id", 3]]
+  [1m[36mTRANSACTION (32.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2021-12-20 22:45:59 +0200
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  [1m[36mRole Load (2.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mRole Load (1.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered users/index.html.erb within layouts/application (Duration: 30.5ms | Allocations: 6107)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 44.7ms | Allocations: 9966)
+Completed 200 OK in 52ms (Views: 38.2ms | ActiveRecord: 8.8ms | Allocations: 11630)
+
+
+Started GET "/roles" for ::1 at 2021-12-20 22:46:06 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (2.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 1425)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 32.2ms | Allocations: 6375)
+Completed 200 OK in 37ms (Views: 29.7ms | ActiveRecord: 5.2ms | Allocations: 6985)
+
+
+Started GET "/roles/3" for ::1 at 2021-12-20 22:46:08 +0200
+Processing by RolesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:69:in `set_role'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."role_id" = $1 LIMIT $2[0m  [["role_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/roles_controller.rb:13:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering roles/show.html.erb within layouts/application
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role_id" = $1[0m  [["role_id", 3]]
+  ↳ app/views/roles/show.html.erb:17
+  Rendered roles/show.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1546)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | Allocations: 6456)
+Completed 200 OK in 46ms (Views: 27.4ms | ActiveRecord: 10.9ms | Allocations: 8878)
+
+
+Started GET "/roles" for ::1 at 2021-12-20 22:46:10 +0200
+Processing by RolesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering roles/index.html.erb within layouts/application
+  [1m[36mRole Load (2.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  ↳ app/views/roles/index.html.erb:15
+  Rendered roles/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1259)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:19
+  [1m[36mRole Load (3.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:5:in `show_role'
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 6230)
+Completed 200 OK in 33ms (Views: 23.4ms | ActiveRecord: 8.1ms | Allocations: 6634)
+
+

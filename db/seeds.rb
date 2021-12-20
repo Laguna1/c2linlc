@@ -13,5 +13,4 @@
 
 r1 = Role.create({ name: 'Patient', description: 'Can create and read vizits. Can read own appointments' })
 r2 = Role.create({ name: 'Doctor', description: 'Can read vizits. Can create, read and update own appointments' })
-r3 = Role.create({ name: 'Admin', description: 'Can perform any CRUD operation on any resource' }) 
-
+r3 = Role.create({ name: 'Admin', description: 'Can perform any CRUD operation on any resource' })
