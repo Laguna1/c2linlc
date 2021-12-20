@@ -7,6 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :role, optional: true
+  belongs_to :category, optional: true
+  
   has_many :created_visits, class_name: 'Visit', foreign_key: 'creator_id'
   has_many :requested_visits, class_name: 'Visit', foreign_key: 'doc_id'
   has_many :given_appointments, class_name: 'Appointment', foreign_key: 'doc_id'
