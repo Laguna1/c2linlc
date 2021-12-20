@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>User_id</th>
+      <th>Role</th>
       <th>Fullname</th>
       <th>Email</th>
       <th>Mobile_no</th>
@@ -17,6 +18,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
+        <td><%= show_role(user) %></td>
+        
         <td><%= user.fullname %></td>
         <td><%= user.email %></td>
         <td><%= user.mobile_no %></td>

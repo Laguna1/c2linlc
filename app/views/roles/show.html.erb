@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @role.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @role.description %>
+</p>
+
+<p>
+  <strong>Associated users:</strong>
+</p> 
+<ol>
+   <% @associated_users.each do |au| %>
+     <li><%= link_to user_path(au) do %>
+        <%= au.fullname %>
+      <% end %>
+      </li>
+
+  <% end %>
+</ol>
+<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Back', roles_path %>

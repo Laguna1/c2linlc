@@ -5,7 +5,7 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = current_user.given_appointments.build(appointment_params)
-    
+
     @appointment.visit_id = params[:visit_id]
     @appointment.receiver_id = @appointment.visit.creator.id
     @appointment.save
