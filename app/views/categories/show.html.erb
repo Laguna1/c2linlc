@@ -1,8 +1,8 @@
 <p>Category show page</p>
 <h1><%= @category.name %></h1>
 <ul>All doctors in this category:
-  <% @category.users.each do |user| %>
-  <li><%= link_to user.fullname, user_path(user) %></li>
+  <% @category.doctor_categories.each do |doc| %>
+  <li><%= link_to doc.fullname, user_path(user) %></li>
   <% end %>
 </ul>
 <br>

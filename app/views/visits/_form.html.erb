@@ -11,11 +11,7 @@
     </div>
   <% end %>
 
-  <div class="">
-    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-    <% cb.label(class: "") {cb.check_box(class: "") + cb.text} %>
-    <% end %>
-	</div>
+  
 
   <div class="field">
     <%= form.label :date %>

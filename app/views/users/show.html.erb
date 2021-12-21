@@ -35,10 +35,10 @@
   <% end %>
 <p>Requested visits: <strong><%= @user.requested_visits.count %></strong>  Received appointments: <strong><%= @user.given_appointments.count %></strong> </p>
   <% @user.requested_visits.each do |visit| %>
-       <p>Visit_id: <%= visit.id %></p>
-       <p>From patient: <%= visit.creator.fullname %></p>
-       <p>Patient`s problem: <%= visit.problem %></p>
-       <p>Given appointment: <%= visit.appointments.first.recipe %></p>
+       <p>Visit_id: <%= @visit.id %></p>
+       <p>From patient: <%= @visit.creator.fullname %></p>
+       <p>Patient`s problem: <%= @visit.problem %></p>
+       <p>Given appointment: <%= @visit.appointments.first.recipe %></p>
   <% end %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

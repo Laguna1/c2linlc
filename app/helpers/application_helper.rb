@@ -8,4 +8,12 @@ module ApplicationHelper
       'The user`s role is not assigned yet'
     end
   end
+
+  def show_category(user)
+    if !user.category.nil?
+      user.category.name
+    else
+      ''
+    end
+  end
 end
